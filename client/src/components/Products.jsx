@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import styled from "styled-components"
-import { popularProducts } from "../data"
 import Product from "./Product"
 import axios from "axios"
 const Container = styled.div`
@@ -16,17 +15,26 @@ const Products = ({cat, filters, sort}) => {
   useEffect(()=>{
     const getProducts = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/products");
-        console.log(res)
+        const res = await axios.get( cat ? `http://localhost:5000/api/products?category=${cat}` : `http://localhost:5000/api/products`);
+        setProducts(res.data)
       } catch (err) {}
     }
     getProducts()
   }, [cat])
 
+  useEffect(()=> {
+    cat && setFilteredProducts(
+      products.filter((item)=>
+        Object.entries(filters).every(([key, value]) =>
+          item[key].includes(value)
+        ))
+    )
+  }, [products, cat, filters])
+  
   return (
   
     <Container>
-        {popularProducts.map((item) => 
+        {filteredProducts.map((item) => 
             <Product item={item} id={item.id}/>
             )}
     </Container>

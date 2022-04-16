@@ -69,11 +69,9 @@ const ProductList = () => {
                 </Select>
                 <Select name="size" onChange={handleFilters}>
                     <Option disabled>Size</Option>
-                    <Option>XS</Option>
-                    <Option>S</Option>
-                    <Option>M</Option>
-                    <Option>L</Option>
-                    <Option>XL</Option>
+                    <Option>64gb</Option>
+                    <Option>128gb</Option>
+                    <Option>256gb</Option>
                 </Select>
             </Filter>
             <Filter>
