@@ -3,6 +3,7 @@ import { Badge } from "@material-ui/core";
 import { ShoppingCartOutlined } from "@material-ui/icons";
 import React from 'react'
 import styled from 'styled-components'
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
     height: 60px;
@@ -34,6 +35,7 @@ const Input = styled.input`
 
 const Logo = styled.h1`
     font-weight: bold;
+    text-decoration: none;
 `
 
 const MenuItem = styled.div`
@@ -56,6 +58,7 @@ const Right = styled.div`
 const Center = styled.div`
     flex: 1;
     text-align: center;
+    
 `
 
 const Navbar = () => {
@@ -70,7 +73,7 @@ const Navbar = () => {
                 </SearchContainer>
             </Left>
 
-            <Center><Logo>JESTIN</Logo></Center>
+            <Link to={'/'}><Center><Logo>TESLA ELECTRONICS</Logo></Center></Link>
 
             <Right>
                 <MenuItem>REGISTER</MenuItem>

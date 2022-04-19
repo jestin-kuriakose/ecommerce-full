@@ -26,20 +26,20 @@ export const categories = [
     {
         id: 1,
         img: "https://i.ibb.co/Ybfw1WM/evie-s-vz3-IQy0-LOa-A-unsplash-removebg-preview.png",
-        title: "SHIRT STYLE",
-        cat: "women"
+        title: "APPLE",
+        cat: "apple"
     },
     {
         id: 2,
         img: "https://i.ibb.co/Ybfw1WM/evie-s-vz3-IQy0-LOa-A-unsplash-removebg-preview.png",
-        title: "LOUNGEWEAR LOVE",
-        cat: "coat"
+        title: "SAMSUNG",
+        cat: "samsung"
     },
     {
         id: 3,
         img: "https://i.ibb.co/Ybfw1WM/evie-s-vz3-IQy0-LOa-A-unsplash-removebg-preview.png",
-        title: "LIGHT JACKETS",
-        cat: "jeans"
+        title: "LG",
+        cat: "lg"
     }
 ]
 
