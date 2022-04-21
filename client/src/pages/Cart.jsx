@@ -2,6 +2,7 @@ import Announcement from '../components/Announcement'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import styled from 'styled-components'
+import { useSelector } from 'react-redux'
 
 const Container = styled.div``
 const Wrapper = styled.div`
@@ -73,6 +74,7 @@ const Summary = styled.div`
 `
 
 const Cart = () => {
+    const cart = useSelector(state=>state.cart)
   return (
     <Container>
         <Navbar />
@@ -89,19 +91,19 @@ const Cart = () => {
             </Top>
             <Bottom>
                 <Info>
-                    <Product>
+                    {cart.products.map((product) => (<Product>
                         <ProductDetail>
-                            <Image/>
+                            <Image src={product.img} width="120px"/>
                             <Details>
-                                <ProductName><b>Product:</b>Apple iPhone 8 Plus 64gb Space Gray</ProductName>
-                                <ProductId><b>Product ID:</b>CPO-IP8PBK-64</ProductId>
+                                <ProductName><b>Product:</b>{product.title}</ProductName>
+                                <ProductId><b>Product ID:</b>{product._id}</ProductId>
                                 <ProductColor/>
-                                <ProductSize><b>Size:</b>64gb</ProductSize>
+                                <ProductSize><b>Size:</b>{product.size}</ProductSize>
 
                             </Details>
                         </ProductDetail>
-                        <PriceDetail>Price</PriceDetail>
-                    </Product>
+                        <PriceDetail>Price: {product.price}</PriceDetail>
+                    </Product>))}
                 </Info>
                 <Summary>Summary</Summary>
             </Bottom>
