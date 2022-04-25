@@ -1,0 +1,3 @@
+[submodule "admin1"]
+	path = admin1
+	url = https://github.com/jestin-kuriakose/ecommerce-full
