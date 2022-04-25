@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import styled from "styled-components"
 import { login } from "../redux/apiCalls"
 
@@ -39,6 +39,13 @@ const Button = styled.button`
     color: white;
     cursor: pointer;
     margin-bottom: 10px;
+    &:disabled{
+        color: green;
+        cursor: not-allowed;
+    }
+`
+const Error = styled.span`
+    color: red;
 `
 const Link = styled.a`
     margin: 5px 0px;
@@ -51,6 +58,7 @@ const Login = () => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("");
     const dispatch = useDispatch()
+    const {isFetching, error} = useSelector((state)=>state.user)
 
     const handleClick = (e) => {
         e.preventDefault()
@@ -62,8 +70,9 @@ const Login = () => {
             <Title>SIGN IN</Title>
             <Form>
                 <Input placeholder="username" onChange={(e)=>setUsername(e.target.value)}/>
-                <Input placeholder="Password" onChange={(e)=>setPassword(e.target.value)}/>
-                <Button onClick={handleClick}>LOGIN</Button>
+                <Input placeholder="Password" type="password" onChange={(e)=>setPassword(e.target.value)}/>
+                <Button onClick={handleClick} disabled={isFetching}>LOGIN</Button>
+                {error && <Error>Something went wrong</Error>}
                 <Link>Forgot password?</Link>
                 <Link>Create a new account</Link>
             </Form>
