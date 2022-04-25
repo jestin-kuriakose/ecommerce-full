@@ -46,13 +46,13 @@ const Products = ({cat, filters, sort}) => {
         [...prev].sort((a,b) => b.price - a.price)
       )
     }
-  })
+  }, [sort])
 
   return (
   
     <Container>
         {cat ? filteredProducts.map((item) => 
-            <Product item={item} id={item.id}/>)
+            <Product item={item} id={item.id} key={item.id}/>)
              : products.slice(0, 8).map((item) => <Product item={item} key={item.id}/>)}  
     </Container>
   )
